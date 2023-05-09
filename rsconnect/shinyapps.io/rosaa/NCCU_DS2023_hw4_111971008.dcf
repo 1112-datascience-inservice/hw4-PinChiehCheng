@@ -1,0 +1,14 @@
+name: NCCU_DS2023_hw4_111971008
+title: NCCU_DS2023_hw4_111971008
+username:
+account: rosaa
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8971266
+bundleId: 7195259
+url: https://rosaa.shinyapps.io/NCCU_DS2023_hw4_111971008/
+when: 1683650648.58886
+lastSyncTime: 1683650648.58888
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: ggvisExample/server.r|ggvisExample/ui.r|images/CA.png|images/PCA.png|images/shinyapp_on_rstudio_2_org.png|images/shinyapp_on_rstudio_2.png|images/shinyapp_on_rstudio.png|pca.R|README.md
