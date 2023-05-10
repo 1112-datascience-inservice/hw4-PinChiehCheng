@@ -45,21 +45,23 @@ shinyApp(
                             ),
                             mainPanel(
                               # Output the PCA rotation matrix as a table
-                                h5("Rotation Matrix"),
-                                  p(DT::dataTableOutput("results"),
+                              h5("Rotation Matrix"),
+                              p(DT::dataTableOutput("results"),
                                 br(),
-                                  tableOutput("sdTable")
-                                )
+                                tableOutput("sdTable")
                               )
                             )
                           )
                  )
-               ),
+               )
+      ),
       tabPanel("CA",
                tabsetPanel(
                  tabPanel("Biplot",
                           sidebarLayout(
                             sidebarPanel(
+                              radioButtons("xvar", "X-axis variable", choices = c("dim 1", "dim 2", "dim 3"), selected = "dim 1"),
+                              radioButtons("yvar", "Y-axis variable", choices = c("dim 1", "dim 2", "dim 3"), selected = "dim 2"),
                               checkboxInput("showRow", "Show row", TRUE),
                               checkboxInput("showCol", "Show column", TRUE),
                             ),
@@ -214,8 +216,12 @@ shinyApp(
     
     # Biplot
     output$biplot <- renderPlot({
+      xvar <- switch(input$xvar, "dim 1" = 1, "dim 2" = 2, "dim 3" = 3)
+      yvar <- switch(input$yvar, "dim 1" = 1, "dim 2" = 2, "dim 3" = 3)
+      
       p <- fviz_ca_biplot(res.ca, col.col = if(input$showCol) "deeppink3" else NA, 
-                          shape.row = 15, col.row = if(input$showRow) "steelblue" else NA, repel = TRUE) +
+                          shape.row = 15, col.row = if(input$showRow) "steelblue" else NA, repel = TRUE, 
+                          axes = c(xvar, yvar)) +
         ggtitle("")
       print(p)
     })
@@ -263,7 +269,7 @@ shinyApp(
       p <- p + ggtitle("")
       print(p)
     })
-
+    
     # dataset-------------------------- 
     output$data <- DT::renderDataTable({
       # Filter data based on selected Species

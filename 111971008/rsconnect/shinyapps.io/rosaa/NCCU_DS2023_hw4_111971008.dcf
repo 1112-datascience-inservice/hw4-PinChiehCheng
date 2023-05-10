@@ -5,10 +5,9 @@ account: rosaa
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 8971266
-bundleId: 7195259
+bundleId: 7199815
 url: https://rosaa.shinyapps.io/NCCU_DS2023_hw4_111971008/
-when: 1683650648.58886
-lastSyncTime: 1683650648.58888
+when: 1683731072.03988
+lastSyncTime: 1683731072.0399
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: ggvisExample/server.r|ggvisExample/ui.r|images/CA.png|images/PCA.png|images/shinyapp_on_rstudio_2_org.png|images/shinyapp_on_rstudio_2.png|images/shinyapp_on_rstudio.png|pca.R|README.md
